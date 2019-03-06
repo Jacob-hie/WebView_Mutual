@@ -1,0 +1,32 @@
+<html>
+<body>
+<button type="button" onclick="callAndroid()">callAndroid</button>
+<button type="button" onclick="showDetail(666)">showDetail</button>
+<button type="button" onclick="showAlert()">showAlert</button>
+<button type="button" onclick="showConfirm()">showConfirm</button>
+<button type="button" onclick="showPrompt()">showPrompt</button>
+<script>
+    function callAndroid(){
+        document.location = "js://webview?arg1=111&arg2=222&age=20&name=zhangsan";
+    }
+    function showDetail(productID){
+        document.location = "js://webview?func=showDetail&id="+productID;
+    }
+    function showAlert(){
+        alert("js://webview?func=showAlert");
+    }
+    function showConfirm(){
+        var result = confirm("js://webview?func=getInfo");
+        if(result == true){
+            document.write("你好帅哥!");
+        }else{
+            document.write("你好美女!");
+        }
+    }
+    function showPrompt(){
+        var name = prompt("js://webview?func=getName");
+        document.write("你好" + name);
+    }
+</script>
+</body>
+</html>
